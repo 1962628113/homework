@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <!--头部-->
     <header-top/>
-
     <div class="button">
       <p class="operating">操作区域</p>
-      <div class="buttonRect" v-bind:class="{mobile:isbool}" v-on:click="mobile(count++)">
+      <div class="buttonRect" v-bind:class="{showButton:isbool}" @click="ClickEvent()">
         <div class="buttonCircle" v-bind:class="{active:!isbool}"></div>
       </div>
     </div>
-    <!--显示-->
     <div v-bind:class="{showdisplay:isbool}" class="showAll">
       <div class="Current_price">
         <p class="operating">当前价格</p>
-        <input type="text" v-model="value" v-on:focus="Focus()">
+        <input type="text" v-model="value" v-on:focus="focus()">
       </div>
 
       <Progress-bar v-bind:value="value"/>
@@ -23,7 +20,6 @@
     </div>
   </div>
 </template>
-
 <script>
   import show from './components/index'
   import showHeader from './components/header'
@@ -32,31 +28,20 @@
     name: 'App',
     components: {
       'Progress-bar': show,
-      'header-top': showHeader,
+       'header-top':showHeader
     },
     data() {
       return {
-        isbool: true,
-        count: 0,
+        isbool: false,
         value: 400,
       }
     },
     methods: {
-      mobile: function () {
-        console.log(this.count)
-        if (this.count % 2 == 0) {
-          this.isbool = true;
-
-        } else {
-          this.isbool = false
-        }
+      ClickEvent() {
+        this.isbool=!this.isbool
       },
-      Focus: function () {
-        this.value = ''
-        // console.log(this.value)
-      },
-      changeValue: function () {
-        console.log(111)
+      focus(){
+        this.value=0
       }
     },
   }
@@ -76,7 +61,6 @@
   header {
     width: 100%;
     display: flex;
-    /*background: aqua;*/
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -91,7 +75,6 @@
     width: 62.5px;
     height: 40px;
     margin-top: 15px;
-    /*background-color: aqua;*/
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -128,7 +111,7 @@
 
   }
 
-  .mobile {
+  .showButton {
     justify-content: flex-start;
     background-color: #B4B7BB;
   }
@@ -146,6 +129,7 @@
   }
 
   .showAll {
+    margin-top: 120px;
     display: block;
   }
 
@@ -154,7 +138,6 @@
   }
 
   .Current_price {
-    margin-top: 120px;
     height: 36px;
     display: flex;
   }
@@ -168,7 +151,6 @@
 
   main {
     width: 100%;
-    height: 22px;
     display: flex;
     flex-wrap: wrap;
     margin-top: 192px;

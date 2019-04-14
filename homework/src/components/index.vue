@@ -1,26 +1,25 @@
 <template>
   <main>
-    <div class="show_text">
-      <div class="show_Text" v-bind:style="{left:leftX}">
-        <div id="Text_top">当前价格:￥{{value}}</div>
-        <div id="Text_bottom"></div>
+    <div class="Text">
+      <div class="showText" v-bind:style="{left:leftX}">
+        <div id="textTop">当前价格:￥{{value}}</div>
+        <div id="textBottom"></div>
       </div>
     </div>
-    <!--显示条-->
-    <div class="Display_bar">
-      <div class="progress_bar" v-bind:style="{width:toPercent}"></div>
-      <div class="down_bar"></div>
-      <div class="down_bar"></div>
+    <div class="displayBar">
+      <div class="progressBar" v-bind:style="{width:toPercent}"></div>
+      <div class="downBar"></div>
+      <div class="downBar"></div>
     </div>
-    <div class="Original_price">
+    <div class="originalPrice">
       <p>￥1000</p>
       <p>(原价)</p>
     </div>
-    <div class="Reserve_price">
+    <div class="reservePrice">
       <p>￥500</p>
       <p>(可购买)</p>
     </div>
-    <div class="Reserve_price">
+    <div class="reservePrice">
       <p>￥100</p>
       <p>(底价)</p>
     </div>
@@ -57,24 +56,22 @@
   }
 </script>
 <style>
-  .show_text {
+  .Text {
     width: 100%;
     height: 53px;
     position: relative;
-    /*background-color: aqua;*/
   }
 
-  .show_Text {
+  .showText {
     position: absolute;
     width: 130px;
     height: 53px;
     display: flex;
     flex-direction: column;
-    /*background: #FF573A;*/
     border-radius: 5px;
   }
 
-  #Text_top {
+  #textTop {
     width: 130px;
     height: 36px;
     background: #FF573A;
@@ -85,7 +82,7 @@
     line-height: 36px;
   }
 
-  #Text_bottom {
+  #textBottom {
     margin-left: 55px;
     width: 0;
     height: 0;

@@ -1,11 +1,11 @@
 <template>
   <header>
-    <div id="Gradient_one"></div>
-    <div class="Original_price">
+    <div id="gradientOne"></div>
+    <div class="originalPrice">
       <p>￥1000</p>
       <p>(原价)</p>
     </div>
-    <div class="Reserve_price">
+    <div class="reservePrice">
       <p>￥100</p>
       <p>(底价)</p>
     </div>

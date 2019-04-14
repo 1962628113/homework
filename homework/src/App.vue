@@ -3,14 +3,14 @@
     <header-top/>
     <div class="button">
       <p class="operating">操作区域</p>
-      <div class="buttonRect" v-bind:class="{showButton:isbool}" @click="ClickEvent()">
-        <div class="buttonCircle" v-bind:class="{active:!isbool}"></div>
+      <div class="buttonRect" v-bind:class="{showButton:show}" @click="clickEvent()">
+        <div class="buttonCircle" v-bind:class="{active:!show}"></div>
       </div>
     </div>
-    <div v-bind:class="{showdisplay:isbool}" class="showAll">
-      <div class="Current_price">
+    <div v-bind:class="{showdisplay:show}" class="showAll">
+      <div class="currentPrice">
         <p class="operating">当前价格</p>
-        <input type="text" v-model="value" v-on:focus="focus()">
+        <input type="text" v-model="value">
       </div>
 
       <Progress-bar v-bind:value="value"/>
@@ -32,17 +32,14 @@
     },
     data() {
       return {
-        isbool: false,
+        show: true,
         value: 400,
       }
     },
     methods: {
-      ClickEvent() {
-        this.isbool=!this.isbool
+      clickEvent() {
+        this.show=!this.show
       },
-      focus(){
-        this.value=0
-      }
     },
   }
 </script>
@@ -65,13 +62,13 @@
     justify-content: space-between;
   }
 
-  #Gradient_one {
+  #gradientOne {
     width: 100%;
     height: 19px;
     background: linear-gradient(90deg, #FAD961, #F76B1C);
   }
 
-  .Original_price, .Reserve_price {
+  .originalPrice, .reservePrice {
     width: 62.5px;
     height: 40px;
     margin-top: 15px;
@@ -137,7 +134,7 @@
     display: none;
   }
 
-  .Current_price {
+  .currentPrice {
     height: 36px;
     display: flex;
   }
@@ -157,26 +154,26 @@
     justify-content: space-between;
   }
 
-  .Display_bar {
+  .displayBar {
     width: 100%;
     height: 20px;
     background: #D8D8D8;
     border: 1px solid #979797;
   }
 
-  .progress_bar {
+  .progressBar {
     height: 100%;
     border-radius: 0 10px 10px 0;
     background: linear-gradient(90deg, #FAD961, #F76B1C);
   }
 
-  .down_bar {
+  .downBar {
     background: #F5A623;
     width: 3px;
     height: 15px;
   }
 
-  .down_bar:nth-child(2) {
+  .downBar:nth-child(2) {
     position: absolute;
     left: 50%;
   }
